@@ -1,4 +1,5 @@
 ﻿using Unity.Entities;
+using Unity.Rendering;
 
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Common
                 AddComponent<ChampTag>(entity);
                 AddComponent<NewChampTag>(entity);
                 AddComponent<MobaTeam>(entity);
+                AddComponent<URPMaterialPropertyBaseColor>(entity);
             }
         }
     }
