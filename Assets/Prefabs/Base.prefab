@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2844751077918081652}
   - component: {fileID: -8021306472977558250}
   - component: {fileID: 7851604728728984867}
+  - component: {fileID: -2792832138735690447}
+  - component: {fileID: -938143914506499784}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -268,3 +270,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2792832138735690447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326781307255034168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f32a0c9917430fb6acf208c93f1950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 500
+--- !u!114 &-938143914506499784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326781307255034168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef5228ee9790431492cdb09d334029b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0

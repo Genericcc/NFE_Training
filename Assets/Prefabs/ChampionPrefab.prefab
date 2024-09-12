@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -615072575299437787}
   - component: {fileID: 1868004433324480403}
   - component: {fileID: -4467070406269515175}
+  - component: {fileID: -7223301167020153410}
   m_Layer: 0
   m_Name: ChampionPrefab
   m_TagString: Untagged
@@ -307,6 +308,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3.5
+--- !u!114 &-7223301167020153410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403193853099150282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f32a0c9917430fb6acf208c93f1950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 1000
 --- !u!1 &859060646936255700
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8371266242411514044}
   - component: {fileID: -2293352519496087944}
   - component: {fileID: 9109658604866127568}
+  - component: {fileID: -5562259901635056956}
+  - component: {fileID: -6397907570142293604}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -269,3 +271,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5562259901635056956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808960621481842931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f32a0c9917430fb6acf208c93f1950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 250
+--- !u!114 &-6397907570142293604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808960621481842931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef5228ee9790431492cdb09d334029b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
