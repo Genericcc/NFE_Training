@@ -16,6 +16,7 @@ namespace Common
                 AddComponent<NewChampTag>(entity);
                 AddComponent<MobaTeam>(entity);
                 AddComponent<URPMaterialPropertyBaseColor>(entity);
+                AddComponent<ChampMoveTargetPosition>(entity);
             }
         }
     }
