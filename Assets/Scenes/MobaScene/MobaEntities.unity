@@ -132,6 +132,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6397907570142293604, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: team
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -243,6 +248,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6397907570142293604, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -354,6 +364,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6397907570142293604, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -465,6 +480,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6397907570142293604, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: team
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -576,6 +596,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6397907570142293604, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: team
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -731,6 +756,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6397907570142293604, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: team
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -1017,6 +1047,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6397907570142293604, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -1283,6 +1318,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6397907570142293604, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -1394,6 +1434,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -938143914506499784, guid: c22c40ef4537da44597359c8d8e582e2,
+        type: 3}
+      propertyPath: team
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 187936380527875801, guid: c22c40ef4537da44597359c8d8e582e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1515,6 +1560,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -938143914506499784, guid: c22c40ef4537da44597359c8d8e582e2,
+        type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 187936380527875801, guid: c22c40ef4537da44597359c8d8e582e2,
         type: 3}
       propertyPath: m_LocalPosition.x

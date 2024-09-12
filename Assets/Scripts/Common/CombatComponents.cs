@@ -24,4 +24,9 @@ namespace Common
         public NetworkTick Tick { get; set; }
         public int Value;
     }
+
+    public struct AbilityPrefabs : IComponentData
+    {
+        public Entity AoeAbility;
+    }
 }

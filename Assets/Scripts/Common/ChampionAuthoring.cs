@@ -1,6 +1,8 @@
 ﻿using Unity.Entities;
 using Unity.Rendering;
 
+using UnityEditor.SceneManagement;
+
 using UnityEngine;
 
 namespace Common
@@ -19,6 +21,7 @@ namespace Common
                 AddComponent<URPMaterialPropertyBaseColor>(entity);
                 AddComponent<ChampMoveTargetPosition>(entity);
                 AddComponent(entity, new CharacterMoveSpeed { Value = authoring.moveSpeed });
+                AddComponent<AbilityInput>(entity);
             }
         }
     }
