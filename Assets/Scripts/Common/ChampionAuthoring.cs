@@ -7,6 +7,7 @@ namespace Common
 {
     public class ChampionAuthoring : MonoBehaviour
     {
+        public float moveSpeed;
         public class ChampionBaker : Baker<ChampionAuthoring>
         {
             public override void Bake(ChampionAuthoring authoring)
@@ -17,6 +18,7 @@ namespace Common
                 AddComponent<MobaTeam>(entity);
                 AddComponent<URPMaterialPropertyBaseColor>(entity);
                 AddComponent<ChampMoveTargetPosition>(entity);
+                AddComponent(entity, new CharacterMoveSpeed { Value = authoring.moveSpeed });
             }
         }
     }

@@ -1,5 +1,7 @@
 ﻿using Cinemachine;
 
+using Common;
+
 using Unity.Entities;
 
 using UnityEngine;
@@ -45,18 +47,18 @@ namespace Client
             _transposer = _cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
         }
 
-        /*private void Start()
+        private void Start()
         {
             if (World.DefaultGameObjectInjectionWorld == null) return;
             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-            _teamControllerQuery = _entityManager.CreateEntityQuery(typeof(ClientTeamRequest));
             _localChampQuery = _entityManager.CreateEntityQuery(typeof(OwnerChampTag));
 
             // Move the camera to the base corresponding to the team the player is on.
             // Spectators' cameras will start in the center of the map
+            _teamControllerQuery = _entityManager.CreateEntityQuery(typeof(ClientTeamRequest));
             if (_teamControllerQuery.TryGetSingleton<ClientTeamRequest>(out var requestedTeam))
             {
-                var team = requestedTeam.Value;
+                var team = requestedTeam.Value; 
                 var cameraPosition = team switch
                 {
                     TeamType.Blue => _blueTeamPosition,
@@ -70,7 +72,7 @@ namespace Client
                     _cameraSet = true;
                 }
             }
-        }*/
+        }
 
         private void OnValidate()
         {
@@ -79,7 +81,7 @@ namespace Client
 
         private void Update()
         {
-            // SetCameraForAutoAssignTeam();
+            SetCameraForAutoAssignTeam();
             MoveCamera();
             ZoomCamera();
         }
@@ -122,7 +124,7 @@ namespace Client
             }
         }
 
-        /*private void SetCameraForAutoAssignTeam()
+        private void SetCameraForAutoAssignTeam()
         {
             if (!_cameraSet)
             {
@@ -139,7 +141,7 @@ namespace Client
                     _cameraSet = true;
                 }
             }
-        }*/
+        }
 
         private void OnDrawGizmos()
         {

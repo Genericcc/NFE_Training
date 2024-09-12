@@ -126,6 +126,8 @@ namespace Client
                 networkStreamDriver.ValueRW.Connect(clientWorld.EntityManager, connectionEndpoint);
             }
             
+            World.DefaultGameObjectInjectionWorld = clientWorld;
+            
             var team = _teamDropdown.value switch
             {
                 0 => TeamType.AutoAssign,
@@ -139,8 +141,6 @@ namespace Client
             {
                 Value = team,
             });
-
-            World.DefaultGameObjectInjectionWorld = clientWorld;
         }
     }
 }
