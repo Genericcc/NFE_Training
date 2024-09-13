@@ -50,7 +50,19 @@ namespace Common
     {
         public Entity Value;
     }
-    
+
+    //How many ticks before cooldown ends
+    public struct AbilityCooldownTicks : IComponentData
+    {
+        public uint AoeAbilityCooldownTicks;
+    }
+
+    [GhostComponent(PrefabType = GhostPrefabType.AllPredicted)]
+    public struct AbilityCooldownTargetTicks : ICommandData
+    {
+        public NetworkTick Tick { get; set; }
+        public NetworkTick AoeAbilityEndCooldownTick;
+    }
 }
 
 
