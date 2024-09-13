@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3802823475101756559}
   - component: {fileID: 6620236079965542430}
   - component: {fileID: 2732642217674103608}
+  - component: {fileID: -8087744833439335901}
+  - component: {fileID: -9036351385608076748}
   m_Layer: 0
   m_Name: AoeSphere
   m_TagString: Untagged
@@ -154,7 +156,7 @@ MonoBehaviour:
         Category00: 0
         Category01: 0
         Category02: 0
-        Category03: 0
+        Category03: 1
         Category04: 0
         Category05: 0
         Category06: 0
@@ -259,7 +261,7 @@ MonoBehaviour:
   SupportedGhostModes: 3
   OptimizationMode: 0
   Importance: 500
-  prefabId: 
+  prefabId: 2b8b7781d3f3697428869e42236e4565
   HasOwner: 0
   SupportAutoCommandTarget: 1
   TrackInterpolationDelay: 0
@@ -305,3 +307,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8087744833439335901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087771111406694063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf51c2074a9040ac875450cbff92d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnTimer: 3
+--- !u!114 &-9036351385608076748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087771111406694063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd96451b19249f79c07bdbf6d2843be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageOnTrigger: 150
