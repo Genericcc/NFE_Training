@@ -22,6 +22,7 @@ namespace Common
                 AddComponent<ChampMoveTargetPosition>(entity);
                 AddComponent(entity, new CharacterMoveSpeed { Value = authoring.moveSpeed });
                 AddComponent<AbilityInput>(entity);
+                AddComponent<AimInput>(entity);
             }
         }
     }

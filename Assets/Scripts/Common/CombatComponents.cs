@@ -28,6 +28,7 @@ namespace Common
     public struct AbilityPrefabs : IComponentData
     {
         public Entity AoeAbility;
+        public Entity SkillShotAbility;
     }
 
     public struct DestroyOnTimer : IComponentData
@@ -55,6 +56,7 @@ namespace Common
     public struct AbilityCooldownTicks : IComponentData
     {
         public uint AoeAbilityCooldownTicks;
+        public uint SkillShotAbilityCooldownTicks;
     }
 
     [GhostComponent(PrefabType = GhostPrefabType.AllPredicted)]
@@ -62,7 +64,17 @@ namespace Common
     {
         public NetworkTick Tick { get; set; }
         public NetworkTick AoeAbilityEndCooldownTick;
+        public NetworkTick SkillShotAbilityEndCooldownTick;
     }
+    
+    public struct AimSkillShotTag : IComponentData {}
+
+    public struct AbilityMoveSpeed : IComponentData
+    {
+        public float Value;
+    }
+    
+    
 }
 
 

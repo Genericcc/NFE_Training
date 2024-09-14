@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1664aa8c89d344d3870419ce57be77cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 20
 --- !u!114 &-7223301167020153410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +336,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aoeAbilityPrefab: {fileID: 5087771111406694063, guid: 2b8b7781d3f3697428869e42236e4565,
     type: 3}
+  skillShotAbilityPrefab: {fileID: 9072410060832748773, guid: a57abfdb8356972408a63a80199f5e70,
+    type: 3}
   aoeAbilityCooldown: 5
+  skillShotAbilityCooldown: 3.5
   netCodeConfig: {fileID: 11400000, guid: dce9a8c7da8b8cf4093e70364ed6f4c4, type: 2}
 --- !u!1 &859060646936255700
 GameObject:
