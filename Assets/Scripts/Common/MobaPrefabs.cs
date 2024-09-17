@@ -12,5 +12,6 @@ namespace Common
     public class UIPrefabs : IComponentData
     {
         public GameObject HealthBar;
+        public GameObject SkillShot;
     }
 }

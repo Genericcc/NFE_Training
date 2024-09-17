@@ -16,4 +16,9 @@ namespace Client.Views
     {
         public float3 Value;
     }
+    
+    public class SkillShotUIReference : ICleanupComponentData
+    {
+        public GameObject Value; 
+    }
 }

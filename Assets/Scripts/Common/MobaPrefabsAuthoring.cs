@@ -11,6 +11,7 @@ namespace Common
 
         [Header("GameObjects")]
         public GameObject healthBarPrefab;
+        public GameObject skillShotPrefab;
         
         private class MobaPrefabsAuthoringBaker : Baker<MobaPrefabsAuthoring>
         {
@@ -24,7 +25,8 @@ namespace Common
                 
                 AddComponentObject(prefabContainerEntity, new UIPrefabs
                 {
-                    HealthBar = authoring.healthBarPrefab,
+                    HealthBar = authoring.healthBarPrefab,                    
+                    SkillShot = authoring.skillShotPrefab,
                 });
             }
         }

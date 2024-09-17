@@ -1,4 +1,6 @@
-﻿using Common;
+﻿using Client.Views;
+
+using Common;
 
 using Unity.Burst;
 using Unity.Entities;
@@ -29,9 +31,16 @@ namespace Client
 
         public void OnUpdate(ref SystemState state)
         {
-            foreach (var (aimInput, transform) 
-                     in SystemAPI.Query<RefRW<AimInput>, LocalTransform>().WithAll<AimSkillShotTag, OwnerChampTag>())
+            //Get all things needed for Raycast
+            //Then Raycast and calculate direction to mousePosition, and set it to aimInput
+            //OwnerChampTag makes sure it's only the local Champion
+            foreach (var (aimInput, transform, skillShotUIReference) 
+                     in SystemAPI.Query<RefRW<AimInput>, LocalTransform, SkillShotUIReference>()
+                                 .WithAll<AimSkillShotTag, OwnerChampTag>())
             {
+                //Set the UI ability incicator to start at caster
+                skillShotUIReference.Value.transform.position = transform.Position;
+                
                 var collisionWorld = SystemAPI.GetSingleton<PhysicsWorldSingleton>().CollisionWorld;
                 var cameraEntity = SystemAPI.GetSingletonEntity<MainCameraTag>();
                 var mainCamera = state.EntityManager.GetComponentObject<MainCameraEcs>(cameraEntity).Value;
@@ -53,8 +62,11 @@ namespace Client
                     directionToTarget.y = transform.Position.y;
                     directionToTarget = math.normalize(directionToTarget);
                     aimInput.ValueRW.Value = directionToTarget;
+
+                    var angleRad = math.atan2(directionToTarget.z, directionToTarget.x);
+                    var angleDeg = math.degrees(angleRad);
+                    skillShotUIReference.Value.transform.rotation = Quaternion.Euler(0f, -angleDeg, 0f);
                 }
-                
             }
         }
     }
