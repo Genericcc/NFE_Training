@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Client
+namespace Client.Views
 {
     public class AbilityCooldownUIController : MonoBehaviour
     {
