@@ -284,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 500
+  healthBarOffset: {x: 0, y: 3, z: 0}
 --- !u!114 &-938143914506499784
 MonoBehaviour:
   m_ObjectHideFlags: 0

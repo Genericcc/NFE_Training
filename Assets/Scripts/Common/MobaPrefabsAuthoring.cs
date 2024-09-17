@@ -6,7 +6,11 @@ namespace Common
 {
     public class MobaPrefabsAuthoring : MonoBehaviour
     {
-        public GameObject Champion;
+        [Header("Entities")]
+        public GameObject champion;
+
+        [Header("GameObjects")]
+        public GameObject healthBarPrefab;
         
         private class MobaPrefabsAuthoringBaker : Baker<MobaPrefabsAuthoring>
         {
@@ -15,7 +19,12 @@ namespace Common
                 var prefabContainerEntity = GetEntity(TransformUsageFlags.None);
                 AddComponent(prefabContainerEntity, new MobaPrefabs
                 {
-                    Champion = GetEntity(authoring.Champion, TransformUsageFlags.Dynamic),
+                    Champion = GetEntity(authoring.champion, TransformUsageFlags.Dynamic),
+                });
+                
+                AddComponentObject(prefabContainerEntity, new UIPrefabs
+                {
+                    HealthBar = authoring.healthBarPrefab,
                 });
             }
         }
