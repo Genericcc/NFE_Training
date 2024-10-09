@@ -28,7 +28,7 @@ namespace Common
                     FirePointOffset = authoring.firePointOffset,
                 });
                 AddComponent<NpcTargetEntity>(entity);
-                AddBuffer<NpcAttackCooldownTargetTick>(entity);
+                AddBuffer<NpcAttackCooldownCommandData>(entity);
             }
         }
     }

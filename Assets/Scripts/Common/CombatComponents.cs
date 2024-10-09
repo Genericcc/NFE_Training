@@ -92,7 +92,7 @@ namespace Common
         public Entity AttackPrefab;
     }
     
-    public struct NpcAttackCooldownTargetTick : ICommandData
+    public struct NpcAttackCooldownCommandData : ICommandData
     {
         public NetworkTick Tick { get; set; }
         public NetworkTick EndCooldownTick;
