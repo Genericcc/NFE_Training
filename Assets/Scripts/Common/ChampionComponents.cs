@@ -11,7 +11,7 @@ namespace Common
     {
         [GhostField] public TeamType Value;
     }
-    public struct CharacterMoveSpeed : IComponentData
+    public struct CharacterMoveSpeed : IComponentData 
     {
         public float Value;
     }
