@@ -7,10 +7,10 @@ namespace Common
 {
     public class NpcAttackAuthoring : MonoBehaviour
     {
+        public float attackCooldown;
         public float npcTargetRadius;
         public Vector3 firePointOffset;
         public GameObject attackPrefab;
-        public float attackCooldown;
 
         public NetCodeConfig netCodeConfig;
         private int SimulationTickRate => netCodeConfig.ClientServerTickRate.SimulationTickRate;
@@ -27,6 +27,7 @@ namespace Common
                     CooldownTickCount = (uint)(authoring.attackCooldown * authoring.SimulationTickRate),
                     FirePointOffset = authoring.firePointOffset,
                 });
+                AddComponent<NpcTargetEntity>(entity);
                 AddBuffer<NpcAttackCooldownTargetTick>(entity);
             }
         }
