@@ -97,6 +97,8 @@ namespace Common
         public NetworkTick Tick { get; set; }
         public NetworkTick EndCooldownTick;
     }
+    
+    public struct GameOverOnDestroyTag : IComponentData { }
 }
 
 

@@ -9,6 +9,7 @@ namespace Common
         [Header("Entities")]
         public GameObject champion;
         public GameObject minion;
+        public GameObject gameOverEntity;
 
         [Header("GameObjects")]
         public GameObject healthBarPrefab;
@@ -23,6 +24,7 @@ namespace Common
                 {
                     Champion = GetEntity(authoring.champion, TransformUsageFlags.Dynamic),
                     Minion = GetEntity(authoring.minion, TransformUsageFlags.Dynamic),
+                    GameOverEntity = GetEntity(authoring.gameOverEntity, TransformUsageFlags.None),
                 });
                 
                 AddComponentObject(prefabContainerEntity, new UIPrefabs

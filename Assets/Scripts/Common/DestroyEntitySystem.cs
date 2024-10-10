@@ -2,6 +2,7 @@
 using Unity.Mathematics;
 using Unity.NetCode;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace Common
 {
@@ -10,6 +11,7 @@ namespace Common
     {
         public void OnCreate(ref SystemState state)
         {
+            state.RequireForUpdate<MobaPrefabs>();
             state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();
             state.RequireForUpdate<NetworkTime>();
         }
@@ -33,6 +35,20 @@ namespace Common
             {
                 if (state.World.IsServer())
                 {
+                    if (SystemAPI.HasComponent<GameOverOnDestroyTag>(entity))
+                    {
+                        var gameOverPrefab = SystemAPI.GetSingleton<MobaPrefabs>().GameOverEntity;
+                        var gameOverEntity = ecb.Instantiate(gameOverPrefab);
+
+                        var losing = SystemAPI.GetComponent<MobaTeam>(entity).Value;
+                        var winningTeam = losing == TeamType.Blue ? TeamType.Red : TeamType.Blue;
+                        
+                        Debug.Log($"{winningTeam} Team won!");
+                        
+                        ecb.SetName(gameOverEntity, "GameOverEntity");
+                        ecb.SetComponent(gameOverEntity, new WinningTeam { Value = winningTeam });
+                    }
+                    
                     ecb.DestroyEntity(entity);
                 }
                 else
