@@ -17,10 +17,11 @@ namespace Server
     {
         public void OnCreate(ref SystemState state)
         {
+            state.RequireForUpdate<NetworkTime>();
             state.RequireForUpdate<GameStartProperties>();
             state.RequireForUpdate<MobaPrefabs>();
             
-            var builder = new EntityQueryBuilder(Allocator.Temp).WithAll<MobaTeamRequest, ReceiveRpcCommandRequest>();
+            var builder = new EntityQueryBuilder(Allocator.Temp).WithAll<MobaTeamRequestRpc, ReceiveRpcCommandRequest>();
             state.RequireForUpdate(state.GetEntityQuery(builder));
         }
 
@@ -35,7 +36,7 @@ namespace Server
             var spawnOffsets = SystemAPI.GetBuffer<SpawnOffset>(gamePropertiesEntity);
             
             foreach (var (teamRequest, requestSource, requestEntity) in 
-                     SystemAPI.Query<MobaTeamRequest, ReceiveRpcCommandRequest>().WithEntityAccess())
+                     SystemAPI.Query<MobaTeamRequestRpc, ReceiveRpcCommandRequest>().WithEntityAccess())
             {
                 ecb.DestroyEntity(requestEntity);
                 ecb.AddComponent<NetworkStreamInGame>(requestSource.SourceConnection);
@@ -97,6 +98,31 @@ namespace Server
                 ecb.SetComponent(newChamp, new MobaTeam { Value = requestedTeamType});
                 
                 ecb.AppendToBuffer(requestSource.SourceConnection, new LinkedEntityGroup { Value = newChamp });
+
+                var playersRemainingToStart = gameStartProperties.MinPlayersToStartGame - teamPlayerCounter.TotalPlayers;
+                
+                var gameStartRpc = ecb.CreateEntity();
+                if (playersRemainingToStart <= 0 && !SystemAPI.HasSingleton<GamePlayingTag>())
+                {
+                    //When we can begin the game - calculate how many ticks to start and add
+                    var simulationTickRate = NetCodeConfig.Global.ClientServerTickRate.SimulationTickRate;
+                    var ticksUntilStart = (uint)(simulationTickRate * gameStartProperties.CountdownTime);
+                    var gameStartTick = SystemAPI.GetSingleton<NetworkTime>().ServerTick;
+                    gameStartTick.Add(ticksUntilStart);
+
+                    ecb.AddComponent(gameStartRpc, new GameStartTickRpc { Value = gameStartTick });
+
+                    var gameStartEntity = ecb.CreateEntity();
+                    ecb.AddComponent(gameStartEntity, new GameStartTick { Value = gameStartTick });
+                }
+                else
+                {
+                    //When a new player joins
+                    ecb.AddComponent(gameStartRpc, new PlayersRemainingToStartRpc { Value = playersRemainingToStart });
+                }
+                
+                //Needed to sent the RPC
+                ecb.AddComponent<SendRpcCommandRequest>(gameStartRpc);
             }
             
             //ECB ZAWSZE PO FOREACHU, MORDO

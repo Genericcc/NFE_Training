@@ -33,7 +33,7 @@ namespace Client
                 ecb.AddComponent<NetworkStreamInGame>(pendingNetworkId);
                 
                 var requestTeamEntity = ecb.CreateEntity();
-                ecb.AddComponent(requestTeamEntity, new MobaTeamRequest { Value = requestedTeam, });
+                ecb.AddComponent(requestTeamEntity, new MobaTeamRequestRpc { Value = requestedTeam, });
                 ecb.AddComponent(requestTeamEntity, new SendRpcCommandRequest { TargetConnection = pendingNetworkId } );
             }
             
