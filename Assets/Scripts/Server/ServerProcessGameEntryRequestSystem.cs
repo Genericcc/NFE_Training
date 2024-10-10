@@ -44,11 +44,17 @@ namespace Server
                 
                 if (requestedTeamType == TeamType.AutoAssign)
                 {
-                    requestedTeamType = TeamType.Blue;
+                    if (teamPlayerCounter.BlueTeamPlayers <= teamPlayerCounter.RedTeamPlayers)
+                    {
+                        requestedTeamType = TeamType.Blue;
+                    }
+                    else if (teamPlayerCounter.BlueTeamPlayers > teamPlayerCounter.RedTeamPlayers)
+                    {
+                        requestedTeamType = TeamType.Red;
+                    }
                 }
                 
                 var clientId = SystemAPI.GetComponent<NetworkId>(requestSource.SourceConnection).Value;
-                Debug.Log($"Server is assigning Client ID: {clientId} to the {requestedTeamType.ToString()} team;");
                 
                 float3 spawnPosition;
 
@@ -80,6 +86,8 @@ namespace Server
                         continue;
                 }
                 
+                Debug.Log($"Server is assigning Client ID: {clientId} to the {requestedTeamType.ToString()} team;");
+
                 var newChamp = ecb.Instantiate(championPrefab);
                 ecb.SetName(newChamp, "Champion");
                 

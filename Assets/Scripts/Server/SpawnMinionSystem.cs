@@ -10,6 +10,7 @@ namespace Server
     {
         public void OnCreate(ref SystemState state)
         {
+            state.RequireForUpdate<GamePlayingTag>();
             state.RequireForUpdate<MinionPathContainers>();
             state.RequireForUpdate<MobaPrefabs>();
             state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();

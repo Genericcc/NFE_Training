@@ -10,7 +10,8 @@ namespace Client
 
         protected override void OnCreate()
         {
-            _inputActions = new MobaInputActions();
+            _inputActions = new MobaInputActions();            
+            RequireForUpdate<GamePlayingTag>();
         }
 
         protected override void OnStartRunning()

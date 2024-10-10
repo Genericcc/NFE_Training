@@ -17,6 +17,7 @@ namespace Client
 
         protected override void OnCreate()
         {
+            RequireForUpdate<GamePlayingTag>();
             _inputActions = new MobaInputActions();
             _selectionFilter = new CollisionFilter
             {

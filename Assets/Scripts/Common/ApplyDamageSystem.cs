@@ -10,7 +10,8 @@ namespace Common
     public partial struct ApplyDamageSystem : ISystem
     {
         public void OnCreate(ref SystemState state)
-        {
+        {            
+            state.RequireForUpdate<GamePlayingTag>();
             state.RequireForUpdate<NetworkTime>();
         }
 
