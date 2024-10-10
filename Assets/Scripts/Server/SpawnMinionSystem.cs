@@ -1,9 +1,7 @@
 using Common;
-using Helpers;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
-using UnityEngine;
 
 namespace Server
 {

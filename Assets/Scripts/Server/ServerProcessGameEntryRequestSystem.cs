@@ -17,6 +17,7 @@ namespace Server
     {
         public void OnCreate(ref SystemState state)
         {
+            state.RequireForUpdate<GameStartProperties>();
             state.RequireForUpdate<MobaPrefabs>();
             
             var builder = new EntityQueryBuilder(Allocator.Temp).WithAll<MobaTeamRequest, ReceiveRpcCommandRequest>();
@@ -27,6 +28,11 @@ namespace Server
         {
             var ecb = new EntityCommandBuffer(Allocator.Temp);
             var championPrefab = SystemAPI.GetSingleton<MobaPrefabs>().Champion;
+
+            var gamePropertiesEntity = SystemAPI.GetSingletonEntity<GameStartProperties>();
+            var gameStartProperties = SystemAPI.GetComponent<GameStartProperties>(gamePropertiesEntity);
+            var teamPlayerCounter = SystemAPI.GetComponent<TeamPlayerCounter>(gamePropertiesEntity);
+            var spawnOffsets = SystemAPI.GetBuffer<SpawnOffset>(gamePropertiesEntity);
             
             foreach (var (teamRequest, requestSource, requestEntity) in 
                      SystemAPI.Query<MobaTeamRequest, ReceiveRpcCommandRequest>().WithEntityAccess())
@@ -49,11 +55,25 @@ namespace Server
                 switch (requestedTeamType)
                 {
                     case TeamType.Blue:
+                        if (teamPlayerCounter.BlueTeamPlayers >= gameStartProperties.MaxPlayersPerTeam)
+                        {
+                            Debug.Log($"Blue team is full, Client ID: {clientId} is spectating the game.");
+                            continue;
+                        }
                         spawnPosition = new float3(-50f, 1f, -50f);
+                        spawnPosition += spawnOffsets[teamPlayerCounter.BlueTeamPlayers].Value;
+                        teamPlayerCounter.BlueTeamPlayers++;
                         break;
 
                     case TeamType.Red:
+                        if (teamPlayerCounter.RedTeamPlayers >= gameStartProperties.MaxPlayersPerTeam)
+                        {
+                            Debug.Log($"Red team is full, Client ID: {clientId} is spectating the game.");
+                            continue;
+                        }
                         spawnPosition = new float3(50f, 1f, 50f);
+                        spawnPosition += spawnOffsets[teamPlayerCounter.RedTeamPlayers].Value;
+                        teamPlayerCounter.RedTeamPlayers++;
                         break;
 
                     default:
@@ -73,6 +93,9 @@ namespace Server
             
             //ECB ZAWSZE PO FOREACHU, MORDO
             ecb.Playback(state.EntityManager);
+            
+            //Incrementing teamPlayerCounter does not actually change the component, it has to be set like this
+            SystemAPI.SetSingleton(teamPlayerCounter);
         }
     }
 }

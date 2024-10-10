@@ -1,8 +1,5 @@
 ﻿using Unity.Entities;
 using Unity.Rendering;
-
-using UnityEditor.SceneManagement;
-
 using UnityEngine;
 
 namespace Common

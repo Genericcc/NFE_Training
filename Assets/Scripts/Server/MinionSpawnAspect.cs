@@ -1,7 +1,7 @@
 using Common;
 using Unity.Entities;
 
-namespace Helpers
+namespace Server
 {
     public readonly partial struct MinionSpawnAspect : IAspect
     {
