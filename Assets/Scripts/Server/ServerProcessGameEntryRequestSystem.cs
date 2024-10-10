@@ -1,6 +1,4 @@
-﻿using System;
-
-using Common;
+﻿using Common;
 
 using Unity.Collections;
 using Unity.Entities;
@@ -45,13 +43,13 @@ namespace Server
                 
                 if (requestedTeamType == TeamType.AutoAssign)
                 {
-                    if (teamPlayerCounter.BlueTeamPlayers <= teamPlayerCounter.RedTeamPlayers)
-                    {
-                        requestedTeamType = TeamType.Blue;
-                    }
-                    else if (teamPlayerCounter.BlueTeamPlayers > teamPlayerCounter.RedTeamPlayers)
+                    if (teamPlayerCounter.BlueTeamPlayers > teamPlayerCounter.RedTeamPlayers)
                     {
                         requestedTeamType = TeamType.Red;
+                    }
+                    else if (teamPlayerCounter.BlueTeamPlayers <= teamPlayerCounter.RedTeamPlayers)
+                    {
+                        requestedTeamType = TeamType.Blue;
                     }
                 }
                 

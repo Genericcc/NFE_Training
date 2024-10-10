@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-
+using Common;
 using TMPro;
 
 using Unity.Entities;
@@ -39,7 +39,6 @@ namespace Client
             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
             _networkConnectionQuery = _entityManager.CreateEntityQuery(typeof(NetworkStreamConnection));
 
-			/*
             var startGameSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<ClientStartGameSystem>();
             if (startGameSystem != null)
             {
@@ -47,14 +46,12 @@ namespace Client
                 startGameSystem.OnStartGameCountdown += BeginCountdown;
             }
 
-            var countdownSystem = World.DefaultGameObjectInjectionWorld
-                .GetExistingSystemManaged<CountdownToGameStartSystem>();
+            var countdownSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<CountdownToGameStartSystem>();
             if (countdownSystem != null)
             {
                 countdownSystem.OnUpdateCountdownText += UpdateCountdownText;
                 countdownSystem.OnCountdownEnd += EndCountdown;
             }
-			*/
         }
         
         private void OnDisable()
@@ -62,8 +59,7 @@ namespace Client
             _quitWaitingButton.onClick.RemoveAllListeners();
             _confirmQuitButton.onClick.RemoveAllListeners();
             _cancelQuitButton.onClick.RemoveAllListeners();
-
-			/*
+            
             if (World.DefaultGameObjectInjectionWorld == null) return;
             var startGameSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<ClientStartGameSystem>();
             if (startGameSystem != null)
@@ -72,14 +68,12 @@ namespace Client
                 startGameSystem.OnStartGameCountdown -= BeginCountdown;
             }
             
-            var countdownSystem = World.DefaultGameObjectInjectionWorld
-                .GetExistingSystemManaged<CountdownToGameStartSystem>();
+            var countdownSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystemManaged<CountdownToGameStartSystem>();
             if (countdownSystem != null)
             {
                 countdownSystem.OnUpdateCountdownText -= UpdateCountdownText;
                 countdownSystem.OnCountdownEnd -= EndCountdown;
             }
-			*/
         }
         
         private void UpdatePlayerRemainingText(int playersRemainingToStart)
